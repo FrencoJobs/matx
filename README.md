@@ -5,19 +5,11 @@ Matx js is an extensional javascript library that only can provide the easiest w
 ## Getting Started
 To get start using matx.js is also the easiest part of it.
 You can install it via npm,
-```
-npm install Matx
-```
-or yarn,
-```
-yarn add Matx
-```
-If you don't want to deal with third party tools, you can install it from cdn
-```
-<script src=''></script>
+```javascript
+npm install matx.js
 ```
 The way Matx.js works is the same as original Math object provided by pure javadcript.
-```
+```javascript
 let A = Matx.create([1,2,3,4],[2,2]); // create a 2 by 2 matrix
 let I = Matx.Identity(3); // create an identity matrix of size 3 by 3
 
@@ -27,7 +19,7 @@ Matx.multiply(A,I) // => A
 
 ```
 Here is a list of available commands,
-```
+```javascript
   Matx.create(array,size) // create a matrix
   Matx.transpose(matrix) // transpose a matrix
   Matx.trace(matrix) // trace of matrix
