@@ -1,0 +1,19 @@
+{
+  "name": "matx.js",
+  "version": "1.0.0-beta",
+  "description": "An extensional javascript library for working with matrices",
+  "main": "matx.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrencoJobs/matx.git"
+  },
+  "author": "Frenco Jobs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrencoJobs/matx/issues"
+  },
+  "homepage": "https://github.com/FrencoJobs/matx#readme"
+}
