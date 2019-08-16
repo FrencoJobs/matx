@@ -1,11 +1,11 @@
 {
   "name": "matx.js",
-  "version": "1.0.0-beta",
+  "version": "1.0.0-beta4",
   "description": "An extensional javascript library for working with matrices",
   "main": "matx.js",
   "scripts": {
-    "format": "prettier --write src/*.js matx.js",
-    "build": "rollup -c && npm run format"
+    "format": "prettier --write src/*.js",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
