@@ -1,5 +1,11 @@
 import { nonZero } from "./helpers"
 
+/**
+ * create an array filled with the given value to the length of len
+ * this is a helper
+ * @param {number} val
+ * @param {number} len
+ */
 export function fill(val, len) {
   if (!nonZero(1, len)) return []
   let ins = [val]

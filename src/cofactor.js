@@ -1,6 +1,12 @@
 import { nonZero, isObject, isSquare, flatten } from "./helpers"
 import { create } from "./create"
 
+/**
+ * find the cofactor of given coordinate in a matrix
+ * more info at https://www.mathsisfun.com/algebra/matrix-inverse-minors-cofactors-adjugate.html
+ * @param {matrix} mat
+ * @param {matrix} coordinate
+ */
 export function cofactor(mat, coordinate) {
   if (
     nonZero(mat.output, mat.size) &&

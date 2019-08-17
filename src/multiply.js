@@ -3,6 +3,11 @@ import { create } from "./create"
 import { dot } from "./dot"
 import { transpose } from "./transpose"
 
+/**
+ * multiply the matrix y with the number x
+ * @param {number} x
+ * @param {matrix} y
+ */
 function scalarMultliply(x, y) {
   if (!isNaN(x)) {
     let maty = flatten(y.output)
@@ -12,6 +17,11 @@ function scalarMultliply(x, y) {
   }
   return false
 }
+/**
+ * multiply two matrices
+ * @param {matrix} x
+ * @param {matrix} y
+ */
 function vectorMultliply(x, y) {
   let nsize
   if (equals(x.size, reverse(y.size))) {
@@ -26,6 +36,7 @@ function vectorMultliply(x, y) {
   }
   return false
 }
+
 export function multiply(x, y) {
   if (isNumber(x) && isMatrix(y)) {
     return scalarMultliply(x, y)

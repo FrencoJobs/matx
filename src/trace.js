@@ -1,5 +1,9 @@
 import { nonZero, isObject, isSquare } from "./helpers"
 
+/**
+ * find the trace of a matrix if exists
+ * @param {matrix} mat
+ */
 export function trace(mat) {
   if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
     let res = []

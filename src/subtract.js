@@ -1,6 +1,11 @@
 import { equals, flatten } from "./helpers"
 import { create } from "./create"
 
+/**
+ * subtract matrix y from matrix x
+ * @param {matrix} x
+ * @param {matrix} y
+ */
 export function subtract(x, y) {
   if (equals(x.size, y.size)) {
     let matx = flatten(x.output)

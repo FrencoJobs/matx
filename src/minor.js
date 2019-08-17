@@ -3,6 +3,10 @@ import { create } from "./create"
 import { det } from "./det"
 import { cofactor } from "./cofactor"
 
+/**
+ * create minor matrix of a matrix
+ * @param {matrix} mat
+ */
 export function minor(mat) {
   if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
     let res = []

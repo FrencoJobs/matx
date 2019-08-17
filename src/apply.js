@@ -1,5 +1,12 @@
 import { isMatrix } from "./helpers"
 
+/**
+ * map all the elements in a matrix
+ * into the callback function
+ * return a new matrix with computed properties
+ * @param {matrix} mat
+ * @param {function} callback
+ */
 export function apply(mat, callback) {
   if (isMatrix(mat)) {
     for (let i = 0; i < mat.size[0]; i++) {

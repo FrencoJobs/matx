@@ -1,6 +1,10 @@
 import { isObject, reverse } from "./helpers"
 import { create } from "./create"
 
+/**
+ * find the transpose of a matrix
+ * @param {matrix} mat
+ */
 export function transpose(mat) {
   if (isObject(mat)) {
     let res = []

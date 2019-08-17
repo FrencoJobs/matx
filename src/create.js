@@ -1,5 +1,11 @@
 import { nonZero, isObject } from "./helpers"
 
+/**
+ * create a matrix from the given array and given size
+ * retur an object with properties `output` and `size`
+ * @param {array} arr
+ * @param {array} size
+ */
 export function create(arr, size) {
   if (
     nonZero(arr, size) &&

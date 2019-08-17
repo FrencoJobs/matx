@@ -1,6 +1,12 @@
 import { nonZero, isObject, isSquare, flatten } from "./helpers"
 import { cofactor } from "./cofactor"
 
+/**
+ * find the determinant of a given matrix
+ * the determinant is calculated recursively using cofactor
+ * so it should work for all the dimensions
+ * @param {matrix} mat
+ */
 export function det(mat) {
   if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
     let total = 0

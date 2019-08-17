@@ -75,6 +75,13 @@
     return mat.size[0] === mat.size[1];
   }
 
+  /**
+   * create a matrix from the given array and given size
+   * retur an object with properties `output` and `size`
+   * @param {array} arr
+   * @param {array} size
+   */
+
   function create(arr, size) {
     if (nonZero(arr, size) && isObject(arr) && isObject(size) && arr.length == size.reduce(function (x, y) {
       return x * y;
@@ -93,6 +100,11 @@
 
     return false;
   }
+
+  /**
+   * find the transpose of a matrix
+   * @param {matrix} mat
+   */
 
   function transpose(mat) {
     if (isObject(mat)) {
@@ -120,6 +132,11 @@
     return false;
   }
 
+  /**
+   * find the trace of a matrix if exists
+   * @param {matrix} mat
+   */
+
   function trace(mat) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
       var res = [];
@@ -135,6 +152,13 @@
 
     return false;
   }
+
+  /**
+   * find the cofactor of given coordinate in a matrix
+   * more info at https://www.mathsisfun.com/algebra/matrix-inverse-minors-cofactors-adjugate.html
+   * @param {matrix} mat
+   * @param {matrix} coordinate
+   */
 
   function cofactor(mat, coordinate) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat) && isObject(coordinate)) {
@@ -152,6 +176,13 @@
     return false;
   }
 
+  /**
+   * find the determinant of a given matrix
+   * the determinant is calculated recursively using cofactor
+   * so it should work for all the dimensions
+   * @param {matrix} mat
+   */
+
   function det(mat) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
       var total = 0;
@@ -166,6 +197,11 @@
 
     return false;
   }
+
+  /**
+   * create minor matrix of a matrix
+   * @param {matrix} mat
+   */
 
   function minor(mat) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
@@ -183,6 +219,10 @@
     return false;
   }
 
+  /**
+   * create a checkerboard matrix
+   * @param {matrix} mat
+   */
   function checkBoard(mat) {
     for (var i = 0; i < mat.size[0]; i++) {
       for (var j = 0; j < mat.size[1]; j++) {
@@ -194,6 +234,14 @@
 
     return mat;
   }
+
+  /**
+   * find the dot product between two arrays
+   * not to get confused with `dotProduct` that works for matrices
+   * this is just a helper
+   * @param {array} x
+   * @param {array} y
+   */
 
   function dot(x, y) {
     x = flatten(x);
@@ -214,6 +262,12 @@
     return false;
   }
 
+  /**
+   * multiply the matrix y with the number x
+   * @param {number} x
+   * @param {matrix} y
+   */
+
   function scalarMultliply(x, y) {
     if (!isNaN(x)) {
       var maty = flatten(y.output);
@@ -228,6 +282,12 @@
 
     return false;
   }
+  /**
+   * multiply two matrices
+   * @param {matrix} x
+   * @param {matrix} y
+   */
+
 
   function vectorMultliply(x, y) {
     var nsize;
@@ -260,6 +320,11 @@
     }
   }
 
+  /**
+   * find the inverse of a matrix if it exists
+   * @param {matrix} mat
+   */
+
   function inverse(mat) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
       var adjugate = checkBoard(transpose(minor(mat)));
@@ -269,6 +334,11 @@
 
     return false;
   }
+
+  /**
+   * find the row Minima of a matrix
+   * @param {matrix} mat
+   */
 
   function rowMinima(mat) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
@@ -281,6 +351,11 @@
 
     return false;
   }
+
+  /**
+   * Take a matrix and find the columnMaxima of it
+   * @param {matrix} mat
+   */
 
   function columnMaxima(mat) {
     if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
@@ -302,10 +377,22 @@
     return maxof(rowMinima(mat));
   }
 
+  /**
+   * find the saddle point of a matrix if it exists
+   * @param {matrix} mat
+   */
+
   function saddlePoint(mat) {
     if (minMax(mat) === maxMin(mat)) return minMax(mat);
     return false;
   }
+
+  /**
+   * create an array filled with the given value to the length of len
+   * this is a helper
+   * @param {number} val
+   * @param {number} len
+   */
 
   function fill(val, len) {
     if (!nonZero(1, len)) return [];
@@ -319,6 +406,11 @@
     return ins;
   }
 
+  /**
+   * create an Indentity matrix
+   * @param {array} size
+   */
+
   function eye(size) {
     var mat = create(fill(0, size * size), [size, size]);
 
@@ -329,14 +421,28 @@
     return mat;
   }
 
+  /**
+   * create a zero matrix with the given size
+   * @param {array} size
+   */
+
   function zero(size) {
     return create(fill(0, size * size), [size, size]);
   }
 
+  /**
+   * add two matrices
+   * return a new matrix with added properties
+   * @param {matrix} x
+   * @param {matrix} y
+   */
+
   function add(x, y) {
     if (equals(x.size, y.size)) {
-      var matx = flatten(x.output);
-      var maty = flatten(y.output);
+      var matx = flatten(x.output); // flatten two matrices
+
+      var maty = flatten(y.output); // then re-create it into the shape
+
       var res = [];
 
       for (var i = 0; i < matx.length; i++) {
@@ -348,6 +454,12 @@
 
     return false;
   }
+
+  /**
+   * subtract matrix y from matrix x
+   * @param {matrix} x
+   * @param {matrix} y
+   */
 
   function subtract(x, y) {
     if (equals(x.size, y.size)) {
@@ -365,6 +477,12 @@
     return false;
   }
 
+  /**
+   * add exponent to a matrix
+   * @param {matrix} mat
+   * @param {number} exponent
+   */
+
   function pow(mat, exponent) {
     var res = 1;
 
@@ -374,6 +492,14 @@
 
     return res;
   }
+
+  /**
+   * map all the elements in a matrix
+   * into the callback function
+   * return a new matrix with computed properties
+   * @param {matrix} mat
+   * @param {function} callback
+   */
 
   function apply(mat, callback) {
     if (isMatrix(mat)) {
@@ -394,6 +520,10 @@
     };
   }
 
+  /**
+   * create a column vector from the given array
+   * @param {array} arr
+   */
   function cvec(arr) {
     return {
       output: arr.map(function (x) {
@@ -403,6 +533,12 @@
     };
   }
 
+  /**
+   * find the product of two matrix
+   * @param {matrix} x
+   * @param {matrix} y
+   */
+
   function dotProduct(x, y) {
     if (isVector(x) && isVector(y) && x.size[0] == y.size[0]) {
       return dot(transpose(x).output, y.output);
@@ -410,6 +546,12 @@
 
     return false;
   }
+
+  /**
+   * find the dyadic product of two matrix
+   * @param {matrix} x
+   * @param {matrix} y
+   */
 
   function dyadicProduct(x, y) {
     if (isVector(x) && isVector(y) && x.size[0] == y.size[0]) {

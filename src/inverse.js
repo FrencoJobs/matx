@@ -5,6 +5,10 @@ import { minor } from "./minor"
 import { det } from "./det"
 import { multiply } from "./multiply"
 
+/**
+ * find the inverse of a matrix if it exists
+ * @param {matrix} mat
+ */
 export function inverse(mat) {
   if (nonZero(mat.output, mat.size) && isObject(mat) && isSquare(mat)) {
     let adjugate = checkBoard(transpose(minor(mat)))
