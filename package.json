@@ -2,11 +2,16 @@
   "name": "matx.js",
   "version": "1.0.0-beta4",
   "description": "An extensional javascript library for working with matrices",
-  "main": "matx.js",
+  "main": "dist/matx.js",
+  "minified": "dist/matx.min.js",
   "scripts": {
     "format": "prettier --write src/*.js",
     "build": "rollup -c"
   },
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FrencoJobs/matx.git"

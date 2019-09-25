@@ -21,7 +21,7 @@ export default [
   {
     input: "src/index.js",
     external: ["ms"],
-    output: [{ file: "matx.min.js", format: "umd", name: "Matx", banner }],
+    output: [{ file: pkg.minified, format: "umd", name: "Matx", banner }],
     plugins: [
       babel({
         exclude: "node_modules/**",
